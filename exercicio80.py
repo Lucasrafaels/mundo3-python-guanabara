@@ -1,16 +1,9 @@
-lista_numeros = list()
-for contagem_numeros in range (0,5):
-    numeros_digitados = int(input('Digite um valor: '))
-    if contagem_numeros == 0 or numeros_digitados > lista_numeros[-1]:
-        lista_numeros.append(numeros_digitados)
-        print('Adicionado ao final da lista...')
-    else:
-        posicao = 0
-        while posicao < len(lista_numeros):
-            if numeros_digitados <= lista_numeros[posicao]:
-                lista_numeros.insert(posicao,numeros_digitados)
-                print(f'Adicionado a posição {posicao+1} da lista')
-                break
-            posicao += 1
-print('='*50)
-print(f'Os valores digitados em ordem crescente {lista_numeros}')
+lista_numeros = []
+for valores in range (0,5):
+    numero_digitado = int(input(f'Digite um valor na posição {valores}: '))
+    posicao_lista = 0
+    while posicao_lista < len(lista_numeros) and lista_numeros[posicao_lista] < numero_digitado:
+        posicao_lista += 1
+    lista_numeros.insert(posicao_lista, numero_digitado)
+    print(f"O número {numero_digitado} foi inserido na posição {posicao_lista}.")
+print("\nLista ordenada (crescente):", lista_numeros)
